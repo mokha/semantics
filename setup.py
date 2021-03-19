@@ -25,7 +25,7 @@ setup(
     # https://packaging.python.org/en/latest/single_source_version.html
     version='1.0.0',
 
-    description='A library for working with semantic of multiple languages..',
+    description='A library for working with semantics in multiple languages..',
     long_description=long_description,
     long_description_content_type='text/markdown',
 
@@ -70,7 +70,7 @@ setup(
     # your project is installed. For an analysis of "install_requires" vs pip's
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=[""],
+    install_requires=["mikatools"],
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). You can install these using the following syntax,
