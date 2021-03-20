@@ -1,6 +1,6 @@
-from mikatools import *
 import os
 import argparse
+from .common import *
 
 ZENODO_BASEURL = "https://zenodo.org/record/4624114/files/"
 
@@ -9,7 +9,9 @@ def _file_name(lang, model):
     if model == "sentiment":
         return "sentiment_model.pt"
     elif model == "vectors":
-        return "vectors-" + lang + ".txt"
+        if lang not in supported_languages():
+            raise (BaseException("Language not supported!"))
+        return "vectors-{}.txt".format(lang)
     else:
         raise (BaseException("Unknown model type " + model))
 
@@ -20,7 +22,8 @@ def main(languages, models):
         for model in models:
             file = _file_name(language, model)
             print("Downloading", model, "for", language)
-            download_file(ZENODO_BASEURL + file + "?download=1", script_path("data/" + file), show_progress=True)
+            download_file(ZENODO_BASEURL + file + "?download=1", download_path() + file,
+                          show_progress=True)
 
 
 if __name__ == "__main__":
