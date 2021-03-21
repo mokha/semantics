@@ -21,8 +21,23 @@ class Embeddings(object):
     def align(e1, e2, word, topn=10):
         return e2.L.similar_by_vector(e1.L.word_vec(word), topn=topn)
 
+    def vector(self, word):
+        return self.L[word]
+
+    def project(self, word, e2, topn=10):
+        return self.align(self, e2, word, topn=topn)
+
+    def similarity(self, *args, **kwargs):
+        return self.L.similarity(*args, **kwargs)
+
+    def most_similar(self, *args, **kwargs):
+        return self.L.most_similar_cosmul(*args, **kwargs)
+
     def theme(self, l):
         return self.L.most_similar(positive=l, topn=1)[0]
+
+    def vocabulary(self):
+        return self.L.vocab
 
     def centroid(self, l):
         vectors = [self.L.get_vector(w) for w in l if w in self.L.vocab]
