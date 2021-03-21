@@ -10,6 +10,8 @@ The following command downloads word vectors for English and Finnish
 
 	python3 -m semantics.download -l eng fin -m vectors
 
+We currently suppor eng, fin, kpv, myv, mdf, rus and sms.
+
 # Usage
 
 Load embeddings of a language by running:
