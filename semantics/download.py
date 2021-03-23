@@ -7,7 +7,7 @@ ZENODO_BASEURL = "https://zenodo.org/record/4624114/files/"
 def _file_name(lang, model):
     if model == "sentiment":
         return "sentiment_model.pt"
-    elif model == "vectors":
+    elif model == "embeddings":
         if lang not in supported_languages():
             raise (BaseException("Language not supported!"))
         return "vectors-{}.txt".format(lang)

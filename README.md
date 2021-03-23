@@ -8,7 +8,7 @@ Semantics is a Python package for modelling various aspects of meaning in langua
 
 The following command downloads word vectors for English and Finnish
 
-	python3 -m semantics.download -l eng fin -m vectors
+	python3 -m semantics.download -l eng fin -m embeddings
 
 We currently suppor eng, fin, kpv, myv, mdf, rus and sms.
 
@@ -59,6 +59,30 @@ Vocabulary
 
 	e.vocabulary()
 	>> {'astrologically': <Vocab object>, 'spinto': <Vocab object>, 'NortelNet': <Vocab object>...}
+
+## Server-mode
+Server-mode is optimal for some cases such debugging or not wanting to wait for multiple models to load. To start word 
+embeddings server, run the below command in the terminal: `python -m semantics.server --service embeddings`
+
+Once the server is loaded, the service is accessible through `EmbeddingsAPI` class. 
+Note that the language/s must be passed every call, otherwise the server cannot know which model to use. 
+Here is an example of accessing the service from Python.
+
+```python
+from semantics import EmbeddingsAPI
+
+api = EmbeddingsAPI()
+api.theme(words=['shoe', 'clothes'], lang='eng')
+api.neighbours(word='hi', threshold=0.4, lang='eng')
+api.analogy('man', 'king', 'woman', topn=10, lang='fin')
+api.centroid(words=['hi', 'hello'], lang='eng')
+api.to_vector(tokens='this is a great api !'.split(' '), lang='eng')
+api.align(word='king', lang1='eng', lang2='fin')
+api.similarity(w1='hi', w2='bye', lang='eng')
+api.most_similar(positive=['hello', 'world'], negative=['king'], topn=10, lang='eng')
+api.vector(word='king', lang='eng')
+api.vocabulary(lang='eng')
+```
 
 # Business solutions
 
