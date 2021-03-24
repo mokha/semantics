@@ -8,13 +8,21 @@ The package can be installed via PIP: `pip install -U semeval`
 
 ## Download models
 
-The following command downloads word vectors for English and Finnish
+The following command downloads word vector embeddings for English and Finnish
 
 	python3 -m semeval.download -l eng fin -m embeddings
 
 We currently suppor eng, fin, kpv, myv, mdf, rus and sms.
 
+Relatedness models can be downloaded using the command:
+
+    python3 -m semeval.download -l eng fin -m relatedness
+    
+Currently, only English and Finnish are supported in the relatedness model.
+
 # Usage
+
+## Word embeddings
 
 Load embeddings of a language by running:
 
@@ -62,7 +70,7 @@ Vocabulary
 	e.vocabulary()
 	>> {'astrologically': <Vocab object>, 'spinto': <Vocab object>, 'NortelNet': <Vocab object>...}
 
-## Server-mode
+### Server-mode
 Server-mode is optimal for some cases such debugging or not wanting to wait for multiple models to load. To start word 
 embeddings server, run the below command in the terminal: `python -m semeval.server --service embeddings`
 
@@ -86,6 +94,29 @@ api.vector(word='king', lang='eng')
 api.vocabulary(lang='eng')
 ```
 
+## Relatedness
+Load the relatedness model:
+
+    from semeval import Relatedness
+    m = Relatedness(lang='eng')
+
+Get most 5 related word to the word *car*:
+
+    m.get_sorted_rel('car')[:5]
+    
+Get relatedness score between two words:
+
+    m.get_rel('car')['insurance']
+
+Top 10 interpretations for the metaphor "*Alcohol* is a *Crutch*". NOTE: unlike the original paper, there is no filtering (e.g., POS 
+filtering) applied in this function. Read the paper for further details and post-processing steps to improve the results.
+
+    m.interpret('alcohol', 'crutch')[:10]
+
+Metaphoricity scores for the tenor *computer*, vehicle *creative* and expression 'The algorithm for painting.'
+
+    m.metaphoricity('computer', 'creative', ['the', 'algorithm', 'for', 'painting'], 300) # 0 to select all
+    
 # Business solutions
 
 <img src="https://rootroo.com/cropped-logo-01-png/" alt="Rootroo logo" width="128px" height="128px">
