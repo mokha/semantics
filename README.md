@@ -4,6 +4,8 @@ Semantics is a Python package for modelling various aspects of meaning in langua
 
 # Installation
 
+The package can be installed via PIP: `pip install -U semeval`
+
 ## Download models
 
 The following command downloads word vectors for English and Finnish
