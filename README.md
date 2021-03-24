@@ -8,7 +8,7 @@ Semantics is a Python package for modelling various aspects of meaning in langua
 
 The following command downloads word vectors for English and Finnish
 
-	python3 -m semantics.download -l eng fin -m embeddings
+	python3 -m semeval.download -l eng fin -m embeddings
 
 We currently suppor eng, fin, kpv, myv, mdf, rus and sms.
 
@@ -16,7 +16,7 @@ We currently suppor eng, fin, kpv, myv, mdf, rus and sms.
 
 Load embeddings of a language by running:
 
-	from semantics import Embeddings
+	from semeval import Embeddings
 	e = Embeddings("eng")
 
 After this, you can find related words
@@ -62,14 +62,14 @@ Vocabulary
 
 ## Server-mode
 Server-mode is optimal for some cases such debugging or not wanting to wait for multiple models to load. To start word 
-embeddings server, run the below command in the terminal: `python -m semantics.server --service embeddings`
+embeddings server, run the below command in the terminal: `python -m semeval.server --service embeddings`
 
 Once the server is loaded, the service is accessible through `EmbeddingsAPI` class. 
 Note that the language/s must be passed every call, otherwise the server cannot know which model to use. 
 Here is an example of accessing the service from Python.
 
 ```python
-from semantics import EmbeddingsAPI
+from semeval import EmbeddingsAPI
 
 api = EmbeddingsAPI()
 api.theme(words=['shoe', 'clothes'], lang='eng')

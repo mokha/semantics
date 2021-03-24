@@ -26,7 +26,7 @@ def main(languages, models):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='semantics download models')
+    parser = argparse.ArgumentParser(description='semeval download models')
     parser.add_argument('-l', '--languages', nargs='+', help='<Required> languages to download', required=True)
     parser.add_argument('-m', '--models', nargs='+', help='<Required> models to download', required=True)
     args = parser.parse_args()

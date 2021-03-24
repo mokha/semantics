@@ -1,4 +1,4 @@
-from semantics import Embeddings
+from semeval import Embeddings
 
 e = Embeddings("eng")
 """

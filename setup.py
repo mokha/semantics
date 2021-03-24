@@ -18,14 +18,14 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name="semantics",
+    name="semeval",
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
     version='1.0.0',
 
-    description='A library for working with semantics in multiple languages..',
+    description='A library for working with semeval in multiple languages..',
     long_description=long_description,
     long_description_content_type='text/markdown',
 
@@ -59,12 +59,12 @@ setup(
     ],
 
     # What does your project relate to?
-    keywords='NLP, semantics, languages, endangered languages',
+    keywords='NLP, semeval, languages, endangered languages',
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
     packages=find_packages(exclude=("tests",)),
-    package_dir={'semantics': 'semantics'},
+    package_dir={'semeval': 'semeval'},
 
     # List run-time dependencies here.  These will be installed by pip when
     # your project is installed. For an analysis of "install_requires" vs pip's

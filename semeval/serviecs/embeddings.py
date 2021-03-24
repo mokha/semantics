@@ -3,10 +3,10 @@ from fastapi import FastAPI, Query, Request, HTTPException
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 import ujson as json
-from semantics.embeddings import Embeddings
+from semeval.embeddings import Embeddings
 import json
 import requests
-from semantics.common import *
+from semeval.common import *
 
 
 def EmbeddingsServer(*args, **kwargs):
@@ -254,7 +254,7 @@ class EmbeddingsAPI:
 
 def test():
     api = EmbeddingsAPI()
-    print(api.theme(words=['shoe', 'shoes', 'clothes'], lang='eng'))
+    print(api.theme(words=['shoe', 'clothes'], lang='eng'))
     print(api.neighbours(word='hi', threshold=0.4, lang='eng'))
     print(api.analogy('man', 'king', 'woman', topn=10, lang='fin'))
     print(api.centroid(words=['hi', 'hello'], lang='eng'))

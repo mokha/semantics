@@ -11,7 +11,7 @@ class Embeddings(object):
             raise Exception("Language '{}' is not supported!".format(lang))
         elif not model_path.is_file():
             raise Exception("Vectors for language '{}' are not downloaded! "
-                            "Download them using `python -m semantics.download -m {} -l {}`"
+                            "Download them using `python -m semeval.download -m {} -l {}`"
                             .format(lang, 'embeddings', lang))
 
         self.L = KeyedVectors.load_word2vec_format(model_path, binary=False, unicode_errors='replace')

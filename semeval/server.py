@@ -1,6 +1,6 @@
 import uvicorn
 import argparse
-from semantics.serviecs import embeddings
+from semeval.serviecs import embeddings
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser()
