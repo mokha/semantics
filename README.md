@@ -103,19 +103,23 @@ Load the relatedness model:
 Get most 5 related word to the word *car*:
 
     m.get_sorted_rel('car')[:5]
+    >> [('park', 0.20570222), ('insurance', 0.085593514), ('parking', 0.06783264), ('hire', 0.036158927), ('cheap', 0.028782822)]
     
 Get relatedness score between two words:
 
     m.get_rel('car')['insurance']
+    >> 0.085593514
 
 Top 10 interpretations for the metaphor "*Alcohol* is a *Crutch*". NOTE: unlike the original paper, there is no filtering (e.g., POS 
 filtering) applied in this function. Read the paper for further details and post-processing steps to improve the results.
 
     m.interpret('alcohol', 'crutch')[:10]
+    >> [('use', 0), ('cane', 0), ('smoking', 1), ('psychological', 2), ('dependence', 2), ('emotional', 3), ('cigarette', 3), ('drug', 4), ('bandage', 4), ('week', 5)]
 
 Metaphoricity scores for the tenor *computer*, vehicle *creative* and expression 'The algorithm for painting.'
 
     m.metaphoricity('computer', 'creative', ['the', 'algorithm', 'for', 'painting'], 300) # 0 to select all
+    >> (3.2977940826411467e-07, 0.000510800164192915, 0.00025556497180058955) # (magnitude score, difference score, avg if both positive)
     
 # Business solutions
 
