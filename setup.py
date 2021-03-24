@@ -25,7 +25,7 @@ setup(
     # https://packaging.python.org/en/latest/single_source_version.html
     version='1.0.0',
 
-    description='A library for working with semeval in multiple languages..',
+    description='A library for working with semantics in multiple languages..',
     long_description=long_description,
     long_description_content_type='text/markdown',
 
