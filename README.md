@@ -1,6 +1,6 @@
-# Semantics
+# Semeval (Semantic Evaluation)
 
-Semantics is a Python package for modelling various aspects of meaning in languages.
+Semeval is a Python package for modelling various aspects of meaning in languages.
 
 # Installation
 
