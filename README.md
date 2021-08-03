@@ -12,7 +12,7 @@ The following command downloads word vector embeddings for English and Finnish
 
 	python3 -m semeval.download -l eng fin -m embeddings
 
-We currently suppor eng, fin, kpv, myv, mdf, rus and sms.
+We currently suppor eng, fin, kpv, myv, mdf, rus, liv and sms.
 
 Relatedness models can be downloaded using the command:
 

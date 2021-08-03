@@ -1,7 +1,7 @@
 import argparse
 from .common import *
 
-ZENODO_BASEURL = "https://zenodo.org/record/4624114/files/"
+ZENODO_BASEURL = "https://zenodo.org/record/5156189/files/"
 
 
 def _file_name(lang, model):
